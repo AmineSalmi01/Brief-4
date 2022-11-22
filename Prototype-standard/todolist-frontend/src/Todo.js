@@ -1,15 +1,19 @@
 import React from "react";
 
-function Todo() {
-    return (
+class Todo extends React.Component{
+    render(){
 
-        <div>
-            <h1>Todo List</h1>
-            <input/>
-            <button>Add</button>
-        </div>
+        return (
 
-    );
+            <div>
+                <h1>Todo List</h1>
+                <input/>
+                <button>Add</button>
+            </div>
+    
+        );
+    
+    }
 
 }
 export default Todo;
