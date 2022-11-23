@@ -4,20 +4,39 @@ class Todo extends Component{
 
     constructor() {
         super();
-        this.state = "app state";
+        this.state = {
+            name: "Amine Salmi"
+        }
+
+        // this.changeName = () => {
+        //     this.setState({
+        //         name: "mohamed leaaribi"
+        //     })
+        // }
+
+        this.changevalue = (e) =>{
+            console.log(e.target.value)
+            this.setState({
+                name: e.target.value
+            })
+        }
     }
     render(){
 
-        function handleSubmit(e) {
-            e.preventDefault();
-            console.log('you clicked'); 
-        }
+        // function handleSubmit(e) {
+        //     e.preventDefault();
+        //     console.log('you clicked'); 
+        // }
 
         return (
+            <div>
+                <form>
+                    <h1>{this.state.name}</h1>
+                    {/* <button onClick={this.changeName}>change name</button> */}
+                    <input type="text" onChange={this.changevalue} />
+                </form>
+            </div>
 
-            <form onSubmit={handleSubmit}>
-                    <button type="submit">Add</button>
-            </form>
     
         );
     
