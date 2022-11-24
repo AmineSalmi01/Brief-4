@@ -4,13 +4,20 @@ const TodoAdd = () => {
   const [formValue, setFormValue] = useState({
     name:"",
   })
+
+const saveValue = (e) => {
+  const {name, value} = e.target;
+  // const name = e.target.name;
+  // const value = e.target.value;
+  setFormValue({...formValue, [name]: value});
+};
   return (
   <div className='mt-20'>
   <form className='max-w-md mx-auto p-4 bg-white shadow-md rounded-sm'>
     <div className='space-y-6'>
       <div className='mb-4'>
           <label className='block mb-2 text-sm font-medium'>Todo</label>
-          <input name='name' value={formValue["name"]}  className='border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2'/>
+          <input name='name' value={formValue["name"]} onChange={saveValue}  className='border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2'/>
       </div>
     </div>
     <div className='my-3'>
