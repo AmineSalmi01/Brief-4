@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
-import Todo from './components/Todo';
+import Todo from './components/Todo'; 
 import TodoAdd from './components/TodoCrude/TodoAdd';
-import TodoEdite from './components/TodoCrude/TodoEdite';
+import TodoEdit from './components/TodoCrude/TodoEdite';
 import TodoIndex from './components/TodoCrude/TodoIndex';
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
         <nav>
           <ul className='flex'>
             <li className='m-2 p-2 bg-indigo-500 hover:bg-indigo-700 text-white rounded-md'>
-              <Link to="/">Home</Link>
+              <Link to="/LisTodo">Home</Link>
             </li>
             <li className='m-2 p-2 bg-indigo-500 hover:bg-indigo-700 text-white rounded-md'>
-              <Link to="/Add">Add Todo</Link>
+              <Link to="/Add/create">Add Todo</Link>
             </li> 
           </ul>
         </nav>
@@ -23,7 +23,7 @@ function App() {
             <Route path='/' element={<Todo />} />
             <Route path='/LisTodo' element={<TodoIndex />} />
             <Route path='/Add/create' element={<TodoAdd />} />
-            <Route path='/Edit/:id/edit' element={<TodoEdite />} />
+            <Route path='/Edit/:id/edit' element={<TodoEdit />} />
           </Routes>
       </div>
     </div>  

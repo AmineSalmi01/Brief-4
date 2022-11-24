@@ -1,10 +1,14 @@
 import React from "react";
 
 class Todo extends React.Component{
+    render(){
+        return (
+            <div>hello</div>
+        )
+    }
     
 }
-
-//     // constructor() {
+//  // constructor() {
 //     //     super();
 //     //     this.state = {
 //     //         name: "Amine Salmi"

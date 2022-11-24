@@ -1,8 +1,9 @@
 import React from 'react'
 
-export const TodoAdd = () => {
+const TodoAdd = () => {
   return (
     <div>TodoAdd</div>
   )
 }
-export default TodoAdd;
+
+export default TodoAdd

@@ -1,8 +1,9 @@
 import React from 'react'
 
-export const TodoIndex = () => {
+const Todoindex = () => {
   return (
     <div>Todoindex</div>
   )
 }
-export default TodoIndex;
+
+export default Todoindex
