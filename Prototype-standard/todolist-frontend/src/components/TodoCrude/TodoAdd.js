@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const TodoAdd = () => {
   const [formValue, setFormValue] = useState({
@@ -11,9 +13,20 @@ const saveValue = (e) => {
   // const value = e.target.value;
   setFormValue({...formValue, [name]: value});
 };
+const navigate = useNavigate();
+
+const addTodo = async (e) => {
+  e.preventDefault();
+  await axios.post("http://127.0.0.1:8000/api/home", formValue);
+  setFormValue({
+    name:""
+
+  }); 
+  navigate("/LisTodo")
+};
   return (
   <div className='mt-20'>
-  <form className='max-w-md mx-auto p-4 bg-white shadow-md rounded-sm'>
+  <form onSubmit={addTodo} className='max-w-md mx-auto p-4 bg-white shadow-md rounded-sm'>
     <div className='space-y-6'>
       <div className='mb-4'>
           <label className='block mb-2 text-sm font-medium'>Todo</label>
@@ -21,7 +34,7 @@ const saveValue = (e) => {
       </div>
     </div>
     <div className='my-3'>
-      <button className='px-4 py-2 bg-indigo-500 hover:bg-indigo-700 text-white rounded-md'>Add todo</button>
+      <button type='submit' className='px-4 py-2 bg-indigo-500 hover:bg-indigo-700 text-white rounded-md'>Add todo</button>
     </div>
   </form>
   </div>

@@ -17,7 +17,7 @@ Route::get('/home', [Todos_controller::class, 'index']);
 
 Route::get('/home/{id}', [Todos_controller::class, 'show']);
 
-Route::post("/home/{id}", [Todos_controller::class, 'add']);
+Route::post("/home", [Todos_controller::class, 'add']);
 
 Route::put("/home/{id}", [Todos_controller::class, 'update']);
 

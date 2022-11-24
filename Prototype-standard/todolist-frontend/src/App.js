@@ -7,26 +7,21 @@ import TodoIndex from './components/TodoCrude/TodoIndex';
 function App() {
   return (
     
-    <div className='bg-slate-200'>
-      <div className='max-w-7xl mx-auto min-h-screen'>
-        <nav>
-          <ul className='flex'>
-            <li className='m-2 p-2 bg-indigo-500 hover:bg-indigo-700 text-white rounded-md'>
-              <Link to="/LisTodo">Home</Link>
-            </li>
-            <li className='m-2 p-2 bg-indigo-500 hover:bg-indigo-700 text-white rounded-md'>
-              <Link to="/Add/create">Add Todo</Link>
-            </li> 
-          </ul>
-        </nav>
-          <Routes>
-            <Route path='/' element={<Todo />} />
-            <Route path='/LisTodo' element={<TodoIndex />} />
-            <Route path='/Add/create' element={<TodoAdd />} />
-            <Route path='/Edit/:id/edit' element={<TodoEdit />} />
-          </Routes>
-      </div>
-    </div>  
+    <div className='bg-indigo-500'>
+        <div className='bg-indigo bg-slate-200'>
+          <div className='bg-indigo max-w-7xl mx-auto min-h-screen'>
+            <nav className='m-1 p-1 bg-indigo'>
+         
+            </nav>
+              <Routes>
+                <Route path='/' element={<Todo />} />
+                <Route path='/LisTodo' element={<TodoIndex />} />
+                <Route path='/Add/create' element={<TodoAdd />} />
+                <Route path='/Edit/:id/edit' element={<TodoEdit />} />
+              </Routes>
+          </div>
+        </div> 
+    </div>
 
     // <Todo />
   );
