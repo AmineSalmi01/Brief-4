@@ -17,7 +17,7 @@ function App() {
                 <Route path='/' element={<Todo />} />
                 <Route path='/LisTodo' element={<TodoIndex />} />
                 <Route path='/Add/create' element={<TodoAdd />} />
-                <Route path='/Edit/:id/edit' element={<TodoEdit />} />
+                <Route path='/Edit/:id' element={<TodoEdit />} />
               </Routes>
           </div>
         </div> 

@@ -31,7 +31,9 @@ class Todos_controller extends Controller
 
         $todo = Todos::find($id);
         // return $todo;
-        return response()->json($todo);
+        return response()->json([
+            'todos' => $todo
+        ]);
 
     }
 
