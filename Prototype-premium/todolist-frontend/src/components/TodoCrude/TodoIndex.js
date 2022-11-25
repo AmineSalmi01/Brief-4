@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { redirect } from "react-router-dom";
 
 const Todoindex = () => {
   const [todos, setTodos] = useState([]);
@@ -12,6 +13,19 @@ const Todoindex = () => {
     };  
     getTodos();
   }, [])
+
+  const setData = (todo) => {
+    console.log(todo);
+    const { id, name } = todo;
+    localStorage.setItem('id' , id);
+    localStorage.setItem('name', name);
+  }
+  
+
+  const deleteTodo = (id) => {
+    axios.delete(`http://127.0.0.1:8000/api/home/${id}`);
+    redirect('/LisTodo');
+  }
   return (
     <div>
     <div className='mt-12'>
@@ -37,7 +51,8 @@ const Todoindex = () => {
                   <tr  key={todo.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td className="py-4 px-6">{todo.name}</td>
                     <td className="py-4 px-6">
-                      <Link to={`/Edit/${todo.id}`} className="px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-md">Edit</Link>
+                      <Link to={`/Edit/${todo.id}`}><button onClick={() => {setData(todo)}}  className="px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-md">Edit</button></Link>
+                      <button onClick={() => deleteTodo(todo.id)} className="px-4 py-2 bg-red-700 hover:bg-red-800 text-white rounded-md">Delete</button>
                     </td>
                   </tr>
                 );
