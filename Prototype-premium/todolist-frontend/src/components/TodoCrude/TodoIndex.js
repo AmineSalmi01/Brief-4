@@ -24,7 +24,9 @@ const Todoindex = () => {
 
   const deleteTodo = (id) => {
     
-    axios.delete(`http://127.0.0.1:8000/api/home/${id}`);
+    axios.delete(`http://127.0.0.1:8000/api/home/${id}`).then((res)=>{
+      setTodos(todos.filter((item)=>item.id !== Number(id)));
+    });
   }
   return (
     <div>
@@ -52,7 +54,7 @@ const Todoindex = () => {
                     <td className="py-4 px-6">{todo.name}</td>
                     <td className="py-4 px-6">
                       <Link to={`/Edit/${todo.id}`}><button onClick={() => {setData(todo)}}  className="px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-md">Edit</button></Link>
-                      <button onClick={() => deleteTodo(todo.id)} className="px-4 py-2 bg-red-700 hover:bg-red-800 text-white rounded-md">Delete</button>
+                        <button onClick={() => deleteTodo(todo.id)} className="px-4 py-2 bg-red-700 hover:bg-red-800 text-white rounded-md">Delete</button> 
                     </td>
                   </tr>
                 );
