@@ -16,7 +16,6 @@ class Todos_controller extends Controller
 
         $todosList = new Todos();
         $todosList->name = $request->name;
-        $todosList->id = $request->id;
         $res = $todosList->save();
 
         if($res){
